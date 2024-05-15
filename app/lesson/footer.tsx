@@ -9,7 +9,7 @@ type Props = {
   onCheck: () => void;
   status: "correct" | "wrong" | "none" | "completed";
   disabled?: boolean;
-  lessonId?: boolean;
+  lessonId?: number;
 };
 const footer = ({ onCheck, status, disabled, lessonId }: Props) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
