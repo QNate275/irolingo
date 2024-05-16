@@ -32,17 +32,15 @@ const Card = ({
     if (disabled) return;
     controls.play();
     onClick();
-  }, [disabled, onclick, controls]);
+  }, [disabled, controls, onClick]);
   useKey(shortcut, handleClick, {}, [handleClick]);
   return (
     <div
       onClick={handleClick}
       className={cn(
         "h-full border-2 border-b-4 rounded-xl hover:bg-black/5 p-4 lg:p-6 cursor-pointer active:border-b-2",
-        selected && "bg-sky-300 bg-sky-100 hover:bg-sky-100",
-        selected &&
-          status === "correct" &&
-          " bg-green-300 bg-green-100 hover:bg-green-100",
+        selected && "bg-sky-100 hover:bg-sky-100",
+        selected && status === "correct" && " bg-green-100 hover:bg-green-100",
         selected &&
           status === "wrong" &&
           " border-rose-300 bg-rose-100 hover:bg-rose-100",

@@ -118,12 +118,13 @@ export const getCourseProgress = cache(async () => {
         return (
           !challenge.challengesProgress ||
           challenge.challengesProgress.length === 0 ||
-          challenge.challengesProgress.some((progress) => {
-            progress.completed === false;
-          })
+          challenge.challengesProgress.some(
+            (progress) => progress.completed === false
+          )
         );
       });
     });
+
   return {
     activeLesson: firstUncompletedLesson,
     activeLessonId: firstUncompletedLesson?.id,
@@ -164,10 +165,8 @@ export const getLesson = cache(async (id?: number) => {
     const completed =
       challenge.challengesProgress &&
       challenge.challengesProgress.length > 0 &&
-      challenge.challengesProgress.every((progress) => {
-        progress.completed;
-      });
-    return { ...challenge, completed };
+      challenge.challengesProgress.every((progress) => progress.completed);
+    return { ...challenge, completed: completed };
   });
 
   return { ...data, challenges: normalizedChallenges };
@@ -181,12 +180,13 @@ export const getLessonPercentage = cache(async () => {
 
   const lesson = await getLesson(courseProgress.activeLessonId);
 
-  if (!lesson) return 0;
+  if (!lesson) {
+    return 0;
+  }
 
-  const completedChallenges = lesson.challenges.filter((challenge) => {
-    challenge.completed;
-  });
-
+  const completedChallenges = lesson.challenges.filter(
+    (challenge) => challenge.completed
+  );
   const percentage = Math.round(
     (completedChallenges.length / lesson.challenges.length) * 100
   );

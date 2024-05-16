@@ -46,6 +46,8 @@ const Quiz = ({
   const { width, height } = useWindowSize();
 
   const router = useRouter();
+
+  //音效
   const [finishAudio] = useAudio({ src: "/finish.mp3", autoPlay: true });
   const [correctAudio, _c, correctControls] = useAudio({ src: "/correct.wav" });
   const [incorrectAudio, _i, incorrectControls] = useAudio({
@@ -53,14 +55,16 @@ const Quiz = ({
   });
 
   const [pending, startTransition] = useTransition();
+
+  //进度管理
   const [lessonId] = useState(initialLessonId);
   const [hearts, setHearts] = useState(initialHearts);
   const [percentage, setPercentage] = useState(() => {
     return initialPercentage === 100 ? 0 : initialPercentage;
   });
-
   const [challenges] = useState(initialLessonChallenges);
 
+  //什么是active的
   const [activeIndex, setActiveIndex] = useState(() => {
     const uncompletedIndex = challenges.findIndex(
       (challenge) => !challenge.completed
@@ -68,8 +72,9 @@ const Quiz = ({
     return uncompletedIndex === -1 ? 0 : uncompletedIndex;
   });
 
+  //做题界面 选择的逻辑
   const [selectedOption, setSelectedOption] = useState<number>();
-  const [status, setSatuse] = useState<"correct" | "wrong" | "none">("none");
+  const [status, setStatus] = useState<"correct" | "wrong" | "none">("none");
 
   const challenge = challenges[activeIndex];
   const options = challenge?.challengesOptions ?? [];
@@ -86,18 +91,21 @@ const Quiz = ({
   const onContinue = () => {
     if (!selectedOption) return;
     if (status === "wrong") {
-      setSatuse("none");
+      setStatus("none");
       setSelectedOption(undefined);
       return;
     }
     if (status === "correct") {
       onNext();
-      setSatuse("none");
+      setStatus("none");
       setSelectedOption(undefined);
       return;
     }
     const correctOption = options.find((option) => option.correct);
-    if (!correctOption) return;
+    if (!correctOption) {
+      console.log(1111);
+      return;
+    }
     if (correctOption && correctOption.id === selectedOption) {
       startTransition(() => {
         upsertChallengeProgress(challenge.id)
@@ -106,10 +114,13 @@ const Quiz = ({
               openHeartsModal();
               return;
             }
-            correctControls.play();
-            setSatuse("correct");
-            setPercentage((prev) => prev + 100 / challenges.length);
 
+            correctControls.play();
+
+            setStatus("correct");
+            console.log(percentage);
+            setPercentage((prev) => prev + 100 / challenges.length);
+            console.log(percentage);
             if (initialPercentage === 100) {
               setHearts((prev) => Math.min(prev + 1, 5));
             }
@@ -125,7 +136,7 @@ const Quiz = ({
               return;
             }
             incorrectControls.play();
-            setSatuse("wrong");
+            setStatus("wrong");
             if (!response?.error) {
               setHearts((prev) => Math.max(prev - 1, 0));
             }

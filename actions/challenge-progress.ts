@@ -26,7 +26,8 @@ export const upsertChallengeProgress = async (challengeId: number) => {
     throw new Error("Challenge not found");
   }
 
-  const lessonId = challenge.lenssonId;
+  const lessonId = challenge.lessonId;
+
   const existingChallengeProgress = await db.query.challengesProgress.findFirst(
     {
       where: and(

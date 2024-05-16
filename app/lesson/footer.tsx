@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { BlobOptions } from "buffer";
 import { CheckCircle, XCircle } from "lucide-react";
 import React from "react";
 import { useKey, useMedia } from "react-use";
