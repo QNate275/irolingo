@@ -1,5 +1,5 @@
 "use client";
-import { challenges, challengesOptions } from "@/db/schema";
+import { challenges, challengesOptions, userSubscription } from "@/db/schema";
 
 import { useState, useTransition } from "react";
 import Header from "./header";
@@ -25,7 +25,11 @@ type Props = {
     completed: boolean;
     challengesOptions: (typeof challengesOptions.$inferSelect)[];
   })[];
-  userSubsription: any; //TODO: replace
+  userSubscription:
+    | (typeof userSubscription.$inferSelect & {
+        isActive: boolean;
+      })
+    | null;
 };
 
 const Quiz = ({
@@ -33,7 +37,7 @@ const Quiz = ({
   initialLessonId,
   initialPercentage,
   initialLessonChallenges,
-  userSubsription,
+  userSubscription,
 }: Props) => {
   const { open: openHeartsModal } = useHeartsModal();
   const { open: openPracticeModal } = usePracticeModal();
@@ -205,7 +209,7 @@ const Quiz = ({
       <Header
         hearts={hearts}
         percentage={percentage}
-        hasActiveSubscription={!!userSubsription?.isActive}
+        hasActiveSubscription={!!userSubscription?.isActive}
       />
       <div className="flex-1">
         <div className=" h-full flex items-center justify-center">
