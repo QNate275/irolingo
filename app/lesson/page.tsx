@@ -25,7 +25,7 @@ const LessonPage = async () => {
       initialLessonChallenges={lesson.challenges}
       initialHearts={userProgress.hearts}
       initialPercentage={initialPercentage}
-      userSubsription={userSubsription}
+      userSubscription={userSubsription}
     ></Quiz>
   );
 };
