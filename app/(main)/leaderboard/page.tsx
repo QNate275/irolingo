@@ -1,3 +1,7 @@
+import Promo from "@/components/promo";
+import Quests from "@/components/quests";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Separator } from "@/components/ui/separator";
 import { FeedWrapper } from "@/components/feed-wrapper";
 import { StickyWrapper } from "@/components/sticky-wrapper";
 import { UserProgress } from "@/components/user-progress";
@@ -8,14 +12,6 @@ import {
 } from "@/db/queries";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import React from "react";
-import { usePromise } from "react-use";
-import Items from "./items";
-import { headers } from "next/headers";
-import { Separator } from "@/components/ui/separator";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import Promo from "@/components/promo";
-import Quests from "@/components/quests";
 
 const LeaderboardPage = async () => {
   const userProgressData = getUserProgress();

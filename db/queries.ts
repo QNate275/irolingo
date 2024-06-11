@@ -125,7 +125,6 @@ export const getCourseProgress = cache(async () => {
   const firstUncompletedLesson = unitsInActiveCourse
     .flatMap((unit) => unit.lessons)
     .find((lesson) => {
-      //TODO: CHECK LAST IF CAUSE
       return lesson.challenges.some((challenge) => {
         return (
           !challenge.challengesProgress ||
@@ -173,7 +172,6 @@ export const getLesson = cache(async (id?: number) => {
     return null;
   }
   const normalizedChallenges = data.challenges.map((challenge) => {
-    //TODO: CHECK LAST IF CAUSE
     const completed =
       challenge.challengesProgress &&
       challenge.challengesProgress.length > 0 &&
