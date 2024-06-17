@@ -15,7 +15,7 @@ import ResultCard from "./result-card";
 import { useRouter } from "next/navigation";
 import Confetti from "react-confetti";
 import { useHeartsModal } from "@/store/use-hearts-modal";
-import { usePracticeModal } from "@/store/use-pratice-modal";
+import { usePracticeModal } from "@/store/use-practice-modal";
 
 type Props = {
   initialLessonId: number;

@@ -33,7 +33,7 @@ export default function Home() {
                 signInForceRedirectUrl="/learn"
                 forceRedirectUrl="/learn"
               >
-                <Button size="lg" variant="secondery" className=" w-full">
+                <Button size="lg" variant="secondary" className=" w-full">
                   Get Started
                 </Button>
               </SignUpButton>
@@ -48,7 +48,7 @@ export default function Home() {
               </SignInButton>
             </SignedOut>
             <SignedIn>
-              <Button size="lg" variant="secondery" className=" w-full" asChild>
+              <Button size="lg" variant="secondary" className=" w-full" asChild>
                 <Link href="/learn">Continue Learning</Link>
               </Button>
             </SignedIn>

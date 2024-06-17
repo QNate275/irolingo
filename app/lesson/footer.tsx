@@ -50,7 +50,7 @@ const footer = ({ onCheck, status, disabled, lessonId }: Props) => {
           className="ml-auto"
           onClick={onCheck}
           size={isMobile ? "sm" : "lg"}
-          variant={status === "wrong" ? "danger" : "secondery"}
+          variant={status === "wrong" ? "danger" : "secondary"}
         >
           {status === "none" && "Check"}
           {status === "correct" && "Next"}
