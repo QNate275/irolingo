@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Check, Crown, Star } from "lucide-react";
 import Link from "next/link";
-import { ContainerWithChildren } from "postcss/lib/container";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
@@ -25,8 +24,8 @@ const LessonButton = ({
   current,
   percentage,
 }: Props) => {
-  const cycleLenth = 8;
-  const cycleIndex = index % cycleLenth;
+  const cycleLength = 8;
+  const cycleIndex = index % cycleLength;
   let indentationLevel;
   if (cycleIndex <= 2) {
     indentationLevel = cycleIndex;
@@ -85,7 +84,7 @@ const LessonButton = ({
             >
               <Button
                 size="rounded"
-                variant={locked ? "locked" : "secondery"}
+                variant={locked ? "locked" : "secondary"}
                 className="h-[70px] w-[70px] border-b-8"
               >
                 <Icon
@@ -94,7 +93,7 @@ const LessonButton = ({
                     locked
                       ? "fill-neutral-400 text-neutral-400 stroke-neutral-400"
                       : "fill-primary-foreground text-primary-foreground",
-                    isCompleted && "fill-none storke-[4]"
+                    isCompleted && "fill-none  stroke-[4]"
                   )}
                 />
               </Button>
@@ -103,7 +102,7 @@ const LessonButton = ({
         ) : (
           <Button
             size="rounded"
-            variant={locked ? "locked" : "secondery"}
+            variant={locked ? "locked" : "secondary"}
             className="h-[70px] w-[70px] border-b-8"
           >
             <Icon
@@ -112,7 +111,7 @@ const LessonButton = ({
                 locked
                   ? "fill-neutral-400 text-neutral-400 stroke-neutral-400"
                   : "fill-primary-foreground text-primary-foreground",
-                isCompleted && "fill-none storke-[4]"
+                isCompleted && "fill-none stroke-[4]"
               )}
             />
           </Button>

@@ -19,7 +19,7 @@ const Items = ({ hearts, points, hasActiveSubscription }: Props) => {
       return;
     }
     startTransition(() => {
-      refillHearts().catch(() => toast.error("Someting went wrong"));
+      refillHearts().catch(() => toast.error("Something went wrong"));
     });
   };
   const onUpgrade = () => {
@@ -30,7 +30,7 @@ const Items = ({ hearts, points, hasActiveSubscription }: Props) => {
             window.location.href = response.data;
           }
         })
-        .catch(() => toast.error("Someting went wrong"));
+        .catch(() => toast.error("Something went wrong"));
     });
   };
   return (

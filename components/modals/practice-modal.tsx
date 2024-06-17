@@ -1,6 +1,6 @@
 "use client";
 
-import { usePracticeModal } from "@/store/use-pratice-modal";
+import { usePracticeModal } from "@/store/use-practice-modal";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
