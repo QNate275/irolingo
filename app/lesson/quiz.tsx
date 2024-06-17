@@ -115,10 +115,22 @@ const Quiz = ({
     }
     const correctOption = options.find((option) => option.correct);
     if (!correctOption) {
-      console.log(1111);
+      //console.log(1111);
       return;
     }
     if (correctOption && correctOption.id === selectedOption) {
+      correctControls.play();
+
+      setStatus("correct");
+
+      setPercentage((prev) => prev + 100 / challenges.length);
+      // console.log(percentage);
+      if (initialPercentage === 100) {
+        setHearts((prev) => Math.min(prev + 1, 5));
+      }
+      if (hearts === 0) {
+        openHeartsModal();
+      }
       startTransition(() => {
         upsertChallengeProgress(challenge.id)
           .then((response) => {
@@ -126,20 +138,16 @@ const Quiz = ({
               openHeartsModal();
               return;
             }
-
-            correctControls.play();
-
-            setStatus("correct");
-
-            setPercentage((prev) => prev + 100 / challenges.length);
-            // console.log(percentage);
-            if (initialPercentage === 100) {
-              setHearts((prev) => Math.min(prev + 1, 5));
-            }
           })
           .catch(() => toast.error("Something went wrong.Please try again."));
       });
     } else {
+      incorrectControls.play();
+      setStatus("wrong");
+      if (hearts === 0) {
+        openHeartsModal();
+      }
+
       startTransition(() => {
         reduceHearts(challenge.id)
           .then((response) => {
@@ -147,8 +155,6 @@ const Quiz = ({
               openHeartsModal();
               return;
             }
-            incorrectControls.play();
-            setStatus("wrong");
             if (!response?.error) {
               setHearts((prev) => Math.max(prev - 1, 0));
             }
