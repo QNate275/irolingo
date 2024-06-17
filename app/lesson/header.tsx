@@ -2,7 +2,7 @@ import { Progress } from "@/components/ui/progress";
 import { useExitModal } from "@/store/use-exit-modal";
 import { InfinityIcon, X } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { memo } from "react";
 
 type Props = {
   hearts: number;
@@ -41,4 +41,4 @@ const Header = ({ hearts, percentage, hasActiveSubscription }: Props) => {
   );
 };
 
-export default Header;
+export default memo(Header);

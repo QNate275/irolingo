@@ -1,7 +1,7 @@
 import { challenges } from "@/db/schema";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import React, { useCallback } from "react";
+import React, { memo, useCallback } from "react";
 import { useAudio, useKey } from "react-use";
 type Props = {
   id: number;
@@ -16,7 +16,6 @@ type Props = {
   type: (typeof challenges.$inferSelect)["type"];
 };
 const Card = ({
-  id,
   audioSrc,
   imageSrc,
   text,
@@ -88,4 +87,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default memo(Card);

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CheckCircle, XCircle } from "lucide-react";
-import React from "react";
+import React, { memo } from "react";
 import { useKey, useMedia } from "react-use";
 
 type Props = {
@@ -42,7 +42,7 @@ const footer = ({ onCheck, status, disabled, lessonId }: Props) => {
             size={isMobile ? "sm" : "lg"}
             onClick={() => (window.location.href = `/lesson/${lessonId}`)}
           >
-            Practise again
+            Practice again
           </Button>
         )}
         <Button
@@ -62,4 +62,4 @@ const footer = ({ onCheck, status, disabled, lessonId }: Props) => {
   );
 };
 
-export default footer;
+export default memo(footer);
