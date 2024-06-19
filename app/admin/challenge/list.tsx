@@ -18,7 +18,7 @@ const ChallengeList = () => {
           choices={[
             {
               id: "SELECT",
-              name: "SELCT",
+              name: "SELECT",
             },
             {
               id: "ASSIST",

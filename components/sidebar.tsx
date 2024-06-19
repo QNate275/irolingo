@@ -1,11 +1,9 @@
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { SidebarItem } from "./sidebar-item";
 import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
-import Router from "next/router";
+import Image from "next/image";
+import Link from "next/link";
+import { SidebarItem } from "./sidebar-item";
 type Props = {
   className?: string;
 };

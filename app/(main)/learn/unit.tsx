@@ -1,8 +1,6 @@
 import { lessons, units } from "@/db/schema";
-import React from "react";
-import UnitBanner from "./unit-banner";
 import LessonButton from "./lesson-button";
-import { is } from "drizzle-orm";
+import UnitBanner from "./unit-banner";
 type Props = {
   id: number;
   order: number;

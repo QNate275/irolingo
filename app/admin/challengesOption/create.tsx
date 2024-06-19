@@ -1,9 +1,7 @@
 import {
   BooleanInput,
   Create,
-  NumberInput,
   ReferenceInput,
-  SelectInput,
   SimpleForm,
   TextInput,
   required,

@@ -1,14 +1,5 @@
-import React from "react";
-import {
-  Create,
-  Datagrid,
-  List,
-  SimpleForm,
-  TextField,
-  TextInput,
-  required,
-} from "react-admin";
-const CoureseCreate = () => {
+import { Create, SimpleForm, TextInput, required } from "react-admin";
+const CourseCreate = () => {
   return (
     <Create>
       <SimpleForm>
@@ -19,4 +10,4 @@ const CoureseCreate = () => {
   );
 };
 
-export default CoureseCreate;
+export default CourseCreate;

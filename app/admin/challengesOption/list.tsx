@@ -1,11 +1,8 @@
-import React from "react";
 import {
   BooleanField,
   Datagrid,
   List,
-  NumberField,
   ReferenceField,
-  SelectField,
   TextField,
 } from "react-admin";
 const ChallengesOptionList = () => {

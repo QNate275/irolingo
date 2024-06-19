@@ -1,21 +1,21 @@
 "use client";
-import { Admin, ListGuesser, Resource } from "react-admin";
 import simpleRestProvider from "ra-data-simple-rest";
-import CourseList from "./course/list";
-import CoureseCreate from "./course/create";
-import CourseEdit from "./course/edit";
-import UnitList from "./unit/list";
-import UnitCreate from "./unit/create";
-import UnitEdit from "./unit/edit";
-import LessonList from "./lesson/list";
-import LessonCreate from "./lesson/create";
-import LessonEdit from "./lesson/edit";
-import ChallengeList from "./challenge/list";
+import { Admin, Resource } from "react-admin";
 import ChallengeCreate from "./challenge/create";
 import ChallengeEdit from "./challenge/edit";
-import ChallengesOptionList from "./challengesOption/list";
+import ChallengeList from "./challenge/list";
 import ChallengesOptionCreate from "./challengesOption/create";
 import ChallengesOptionEdit from "./challengesOption/edit";
+import ChallengesOptionList from "./challengesOption/list";
+import CourseCreate from "./course/create";
+import CourseEdit from "./course/edit";
+import CourseList from "./course/list";
+import LessonCreate from "./lesson/create";
+import LessonEdit from "./lesson/edit";
+import LessonList from "./lesson/list";
+import UnitCreate from "./unit/create";
+import UnitEdit from "./unit/edit";
+import UnitList from "./unit/list";
 
 const dataProvider = simpleRestProvider("/api");
 const App = () => {
@@ -25,7 +25,7 @@ const App = () => {
         name="courses"
         recordRepresentation="title"
         list={CourseList}
-        create={CoureseCreate}
+        create={CourseCreate}
         edit={CourseEdit}
       />
       <Resource

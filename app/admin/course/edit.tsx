@@ -1,14 +1,4 @@
-import React from "react";
-import {
-  Create,
-  Datagrid,
-  Edit,
-  List,
-  SimpleForm,
-  TextField,
-  TextInput,
-  required,
-} from "react-admin";
+import { Edit, SimpleForm, TextInput, required } from "react-admin";
 const CourseEdit = () => {
   return (
     <Edit>
