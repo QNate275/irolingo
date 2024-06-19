@@ -50,7 +50,7 @@ const Card = ({
       {audio}
       {imageSrc && (
         <div className="relative aspect-square mb-4 max-h-[80px] lg:max-h-[150px] w-full">
-          <Image src={imageSrc} fill alt={text} />
+          <Image src={imageSrc} fill alt={text} quality={50} />
         </div>
       )}
       <div

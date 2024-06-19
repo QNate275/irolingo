@@ -5,6 +5,7 @@ import React from "react";
 import { SidebarItem } from "./sidebar-item";
 import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
+import Router from "next/router";
 type Props = {
   className?: string;
 };
@@ -16,7 +17,7 @@ export const Sidebar = ({ className }: Props) => {
         className
       )}
     >
-      <Link href="/learn">
+      <Link href="/">
         <div className=" pt-8 pl-4 pb-7 flex items-center gap-x-3">
           <Image src="/mascot.svg" height={40} width={40} alt="Mascot"></Image>
           <h1 className=" text-2xl font-extrabold text-green-600 tracking-wide">

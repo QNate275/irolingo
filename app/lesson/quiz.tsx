@@ -214,7 +214,7 @@ const Quiz = ({
 
   const title =
     challenge.type === "ASSIST"
-      ? "Selct the correct meaning"
+      ? "Select the correct meaning"
       : challenge.question;
   return (
     <>
