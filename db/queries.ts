@@ -11,6 +11,7 @@ import {
   userSubscription,
 } from "./schema";
 
+//获取用户选择课程进度
 export const getUserProgress = cache(async () => {
   const { userId } = await auth();
   if (!userId) {
@@ -25,18 +26,20 @@ export const getUserProgress = cache(async () => {
   return data;
 });
 
+//获取所有课程
 export const getCourses = cache(async () => {
   const data = await db.query.courses.findMany();
   return data;
 });
 
+//根据id获取用户活跃课程的unit data
 export const getUnits = cache(async () => {
   const { userId } = await auth();
   const userProgress = await getUserProgress();
   if (!userId || !userProgress?.activeCourseId) {
     return [];
   }
-
+  //进度数据
   const data = await db.query.units.findMany({
     orderBy: (units, { asc }) => [asc(units.order)],
     where: eq(units.courseId, userProgress.activeCourseId),
@@ -56,6 +59,7 @@ export const getUnits = cache(async () => {
       },
     },
   });
+  //+是否完成
   const normalizedData = data.map((unit) => {
     const lessonsWithCompletedStatus = unit.lessons.map((lesson) => {
       if (lesson.challenges.length === 0) {
@@ -76,6 +80,7 @@ export const getUnits = cache(async () => {
   return normalizedData;
 });
 
+//获取单个课程
 export const getCourseById = cache(async (courseId: number) => {
   const data = await db.query.courses.findFirst({
     where: eq(courses.id, courseId),
@@ -93,6 +98,7 @@ export const getCourseById = cache(async (courseId: number) => {
   return data;
 });
 
+//获取课程进度
 export const getCourseProgress = cache(async () => {
   const { userId } = auth();
   const userProgress = await getUserProgress();

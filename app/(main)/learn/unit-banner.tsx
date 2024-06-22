@@ -24,7 +24,7 @@ const UnitBanner = ({ title, description }: Props) => {
          active:border-b-2"
         >
           <NotebookText className=" mr-2" />
-          continue
+          Continue
         </Button>
       </Link>
     </div>
